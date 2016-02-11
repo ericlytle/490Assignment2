@@ -22,7 +22,7 @@ public class Main {
         
         
         
-        BorderLayoutFrame frame_2=new BorderLayoutFrame(controller);
+        Application frame_2=new Application(controller);
         frame_2.setSize(400,400);
         frame_2.setVisible(true);
         

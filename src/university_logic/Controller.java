@@ -24,6 +24,20 @@ public class Controller {
         return result;
     }
     
+    public boolean deleteCourse(String cID, String dept){
+        for (Department de : this.departments){
+            if (dept == de.getID()){
+                return de.deleteCourse(cID);
+            }
+        }
+        return false;
+    }
+    
+    public void editCourse(String cID, String dept, String cTitle, int cCredits){
+        deleteCourse(cID, dept);
+        addCourse(cID, cTitle, cCredits, dept);
+    }
+    
     public Department addDepartment(String dID, String dName){
         Department result = new Department(dID, dName);
         this.departments.add(new Department(dID, dName));
@@ -32,5 +46,20 @@ public class Controller {
     
     public LinkedList<Department> getDepartments(){
         return this.departments;
+    }
+    
+    public boolean checkCourseAvailable(String cID, String Dept){
+        String ID;
+        for (Department d: this.departments){
+            if (d.getID() == Dept){
+                for (Course c: d.getCourses()){
+                    ID = c.getID();
+                    if (ID.equals(cID)){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 }

@@ -28,9 +28,6 @@ public class Course{
     public String getID(){
         return this.ID;
     }
-    
-    public void editID(String sID){
-        this.ID = sID;
-    }
+  
     
 }

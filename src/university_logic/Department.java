@@ -34,11 +34,13 @@ public class Department{
         return this.Courses;
     }
     
-    public void deleteCourse(String cID){
+    public boolean deleteCourse(String cID){
         for (Course sCourse : this.Courses){
-            if (sCourse.getID() == cID){
+            if (sCourse.getID().equals(cID)){
                 this.Courses.remove(sCourse);
+                return true;
             }
         }
+        return false;
     }
 }
